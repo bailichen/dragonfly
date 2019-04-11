@@ -1,10 +1,9 @@
 {
-  "name": "ld-h5-demo",
+  "name": "dragonfly",
   "version": "1.0.0",
-  "description": "A Demo Project of Landa h5",
+  "description": "A Project of dragonfly h5",
   "author": {
-    "name": "huangyu",
-    "email": "huangyu@landawang.com"
+    "name": "xulianjie"
   },
   "contributors": [],
   "private": true,
@@ -14,9 +13,7 @@
     "start:test": "cross-env DOMAIN=test webpack-dev-server --hide-modules --config build/webpack.dev.config.js --hot --historyApiFallback --inline --open",
     "dev": "cross-env DOMAIN=development webpack --hide-modules --config build/webpack.prod.config.js",
     "test": "cross-env DOMAIN=test webpack --hide-modules --config build/webpack.prod.config.js",
-    "build": "cross-env DOMAIN=production webpack --hide-modules --config build/webpack.prod.config.js",
-    "start:dist": "cross-env DOMAIN=production webpack-dev-server --hide-modules --config build/webpack.prod.config.js --historyApiFallback --inline --open",
-    "build:demo": "cross-env DOMAIN=demo webpack --hide-modules --config build/webpack.prod.config.js"
+    "build": "cross-env DOMAIN=production webpack --hide-modules --config build/webpack.prod.config.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

@@ -78,12 +78,12 @@
             }
         },
         created() {
-            if (ua.isIosApp) {
-                window.webkit.messageHandlers.assistiveTouch.postMessage('0');
-            }
-            if (ua.isAndroidApp) {
-                window.control.assistiveTouch('0');
-            }
+            // if (ua.isIosApp) {
+            //     window.webkit.messageHandlers.assistiveTouch.postMessage('0');
+            // }
+            // if (ua.isAndroidApp) {
+            //     window.control.assistiveTouch('0');
+            // }
         },
         mounted() {
             const _this = this;
@@ -114,7 +114,7 @@
 
         &.v-enter,
         &.v-leave-active {
-            //transform: translateX(100%);
+            transform: translateX(100%);
             left: 100%;
         }
 
@@ -125,7 +125,7 @@
             padding: 0 20px;
             background: #fff;
             border-bottom: 2px solid #f1f1f1;
-            //-webkit-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
 
             .btns-left {
                 flex-shrink: 0;

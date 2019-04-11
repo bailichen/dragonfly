@@ -30,8 +30,7 @@ for (var key in networkInterfaces) {
 
 module.exports = {
     entry: {
-        'index': [path.resolve('src/main.js')],
-        'download': [path.resolve('src/+download/main.js')]
+        'index': [path.resolve('src/main.js')]
     },
     output: {
         publicPath: '/'
@@ -167,13 +166,7 @@ module.exports = {
             filename: 'index.html',
             template: path.resolve('src/index.html'),
             showErrors: true,
-            excludeChunks: ['download']
-        }),
-        new HtmlPlugin({
-            filename: 'download.html',
-            template: path.resolve('src/index.html'),
-            showErrors: true,
-            excludeChunks: ['index']
+            // excludeChunks: []
         }),
         //new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(zh-cn|en-gb)$/),
         new webpack.DefinePlugin({
