@@ -17,11 +17,6 @@ const router = new VueRouter({
 import '@/assets/iconfonts/ck-app-icon/iconfont.scss';
 import '@/assets/style/global.scss';
 
-// //Hammer
-// import {
-//     VueHammer
-// } from 'vue2-hammer';
-// Vue.use(VueHammer);
 
 //Componets
 import Components from './components';
