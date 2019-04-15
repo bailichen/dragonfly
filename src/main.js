@@ -5,13 +5,13 @@ import './utils/js';
 import Vue from 'vue';
 
 //VueRouter
-import VueRouter from 'vue-router';
-import routes from './routes';
-Vue.use(VueRouter);
-const router = new VueRouter({
-    mode: 'history',
-    routes,
-});
+// import VueRouter from 'vue-router';
+import router from './routes';
+// Vue.use(VueRouter);
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes,
+// });
 
 //iconfont
 import '@/assets/iconfonts/ck-app-icon/iconfont.scss';
