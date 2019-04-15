@@ -11,6 +11,9 @@ export default {
         return{
 
         }
+    },
+    mounted(){
+        this.$store.dispatch('demo/invokePushItems')
     }
 }
 </script>

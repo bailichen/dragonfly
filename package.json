@@ -16,13 +16,14 @@
     "build": "cross-env DOMAIN=production webpack --hide-modules --config build/webpack.prod.config.js"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "axios": "^0.18.0",
+    "babel-runtime": "^6.26.0",
+    "mint-ui": "^2.2.13",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "babel-runtime": "^6.26.0",
-    "amfe-flexible": "^2.2.1",
-    "mint-ui": "^2.2.13",
-    "vue2-hammer": "^2.0.1"
+    "vue2-hammer": "^2.0.1",
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

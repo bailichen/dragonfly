@@ -3,16 +3,16 @@ import ua from '@/_config/ua.js';
 export default {
     install(Vue, options) {
         Vue.prototype.$back = function () {
-            if (this.routerFrom.name) {
-                this.$router.go(-1);
-            } else {
-                if (ua.isIosApp) {
-                    window.webkit.messageHandlers.quitWebView.postMessage('');
-                }
-
+            const historyList = this.$store.state.history.list;
+            if (historyList.length > 1) {
                 if (ua.isAndroidApp) {
-                    window.control.quitWebView();
+                    window.control['goBack']()
                 }
+                else {
+                    this.$router.go(-1);
+                }
+            } else {
+                window.webkit.messageHandlers.quitWebView.postMessage('');
             }
         }
     }

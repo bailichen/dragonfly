@@ -3,7 +3,7 @@ import './utils/js';
 
 //Vue
 import Vue from 'vue';
-
+import store from './store'//引入store
 //VueRouter
 // import VueRouter from 'vue-router';
 import router from './routes';
@@ -48,5 +48,6 @@ import App from './app.vue';
 let vm = new Vue({
     el: '#app',
     router,
+    store,//使用store
     render: h => h(App)
 });
