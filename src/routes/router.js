@@ -1,9 +1,9 @@
 export default [
     {
-        path: '/main',
+        path: '',
         name: 'main',
         meta: {
-            title: 'main'
+            title: '微信测试'
         },
         component: () =>
             import( /* webpackChunkName: "modules/main" */ '@/views/main/main.vue'),

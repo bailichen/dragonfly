@@ -1,7 +1,7 @@
 <template>
     <div>
-        <frame-view-float title="main" :z="120" class="main">
-                1232
+        <frame-view-float title="微信测试" :z="120" class="main">
+                微信测试
         </frame-view-float>
     </div>
 </template>
