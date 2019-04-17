@@ -16,8 +16,7 @@ const styleLoader = domain === 'production' ? MiniCssExtractPlugin.loader : 'sty
 
 const os = require('os');
 const networkInterfaces = os.networkInterfaces();
-
-
+ 
 let ip = '';
 for (var key in networkInterfaces) {
     networkInterfaces[key].forEach(item => {
@@ -34,7 +33,7 @@ module.exports = {
     },
     devServer: {
         host: ip,
-        port: 10022
+        port: 10023
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -58,7 +57,6 @@ module.exports = {
                 include: [
                     path.resolve('src'),
                     path.resolve('node_modules/dom7/'),
-                    path.resolve('node_modules/swiper/'),
                     path.resolve('node_modules/axios/'),
                 ]
             },

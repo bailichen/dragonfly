@@ -16,7 +16,7 @@ module.exports = merge(baseCfg, {
         publicPath: '/wechart/h5/',
         path: path.resolve('dist'),
         filename: 'static/[name].[contenthash].js',
-        chunkFilename: 'static/[name].[contenthash].js'
+        chunkFilename: 'static/[name].[contenthash].js',
     },
 
     devtool: "cheap-module-map",
