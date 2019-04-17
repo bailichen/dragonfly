@@ -13,6 +13,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = merge(baseCfg, {
     mode: 'production',
     output: {
+        publicPath: '/wechart/h5/',
         path: path.resolve('dist'),
         filename: 'static/[name].[contenthash].js',
         chunkFilename: 'static/[name].[contenthash].js'

@@ -5,6 +5,7 @@ import routes from './router';
 import store from '@/store';
 Vue.use(VueRouter);
 const router = new VueRouter({
+    base:'/wechart/h5/',
     mode: 'history',
     routes,
 });

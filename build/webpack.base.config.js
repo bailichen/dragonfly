@@ -32,12 +32,9 @@ module.exports = {
     entry: {
         'index': [path.resolve('src/main.js')]
     },
-    output: {
-        publicPath: '/wechart/h5/'
-    },
     devServer: {
         host: ip,
-        port: 10020
+        port: 10022
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],

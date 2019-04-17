@@ -9,7 +9,6 @@ const mutations={
 
 const actions={
     change({ state, commit }, path) {
-        console.log(path);
         const result = [...state.list];
         const length = result.length;
 

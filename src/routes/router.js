@@ -1,6 +1,6 @@
 export default [
     {
-        path: '',
+        path: '/main',
         name: 'main',
         meta: {
             title: '微信测试'
