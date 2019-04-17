@@ -33,7 +33,7 @@ module.exports = {
         'index': [path.resolve('src/main.js')]
     },
     output: {
-        publicPath: '/'
+        publicPath: '/wechart/h5/'
     },
     devServer: {
         host: ip,
