@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -12,11 +11,9 @@ const domain = process.env.DOMAIN;
 
 //开发环境下不单独提取css
 const styleLoader = domain === 'production' ? MiniCssExtractPlugin.loader : 'style-loader';
-
-
 const os = require('os');
 const networkInterfaces = os.networkInterfaces();
- 
+
 let ip = '';
 for (var key in networkInterfaces) {
     networkInterfaces[key].forEach(item => {
@@ -48,82 +45,82 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                include: [
-                    path.resolve('src'),
-                    path.resolve('node_modules/dom7/'),
-                    path.resolve('node_modules/axios/'),
-                ]
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    styleLoader,
-                    "css-loader",
-                    {
-                        loader: 'px2rem-loader',
-                        options: {
-                            remUnit: 75
-                        }
+            test: /\.vue$/,
+            loader: 'vue-loader'
+        },
+        {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            include: [
+                path.resolve('src'),
+                path.resolve('node_modules/dom7/'),
+                path.resolve('node_modules/axios/'),
+            ]
+        },
+        {
+            test: /\.css$/,
+            use: [
+                styleLoader,
+                "css-loader",
+                {
+                    loader: 'px2rem-loader',
+                    options: {
+                        remUnit: 75
                     }
-                ],
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    styleLoader,
-                    "css-loader",
-                    {
-                        loader: 'px2rem-loader',
-                        options: {
-                            remUnit: 75
-                        }
-                    },
-                    'less-loader'
-                ],
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    styleLoader,
-                    'css-loader',
-                    {
-                        loader: 'px2rem-loader',
-                        options: {
-                            remUnit: 75
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
+                }
+            ],
+        },
+        {
+            test: /\.less$/,
+            use: [
+                styleLoader,
+                "css-loader",
+                {
+                    loader: 'px2rem-loader',
+                    options: {
+                        remUnit: 75
+                    }
+                },
+                'less-loader'
+            ],
+        },
+        {
+            test: /\.scss$/,
+            use: [
+                styleLoader,
+                'css-loader',
+                {
+                    loader: 'px2rem-loader',
+                    options: {
+                        remUnit: 75
+                    }
+                },
+                {
+                    loader: 'sass-loader',
+                    options: {
 
-                        }
                     }
-                ]
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/,
-                include: /images/,
-                loader: 'url-loader',
-                query: {
-                    limit: 1,
-                    name: 'static/asset/images/[hash:16].[ext]'
                 }
-            },
-            {
-                test: /\.(ttf|woff2?|eot|svg)$/,
-                include: /font/,
-                loader: 'url-loader',
-                query: {
-                    limit: 1,
-                    name: 'static/asset/fonts/[name].[hash:7].[ext]'
-                }
+            ]
+        },
+        {
+            test: /\.(png|jpe?g|gif|svg)$/,
+            include: /images/,
+            loader: 'url-loader',
+            query: {
+                limit: 1,
+                name: 'asset/images/[hash:16].[ext]'
             }
+        },
+        {
+            test: /\.(ttf|woff2?|eot|svg)$/,
+            include: /font/,
+            loader: 'url-loader',
+            query: {
+                limit: 1,
+                name: 'asset/fonts/[name].[hash:7].[ext]'
+            }
+        }
         ]
     },
     optimization: {
