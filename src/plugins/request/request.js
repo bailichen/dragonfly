@@ -10,7 +10,7 @@ const Request = {
 
         const instance = axios.create({
             timeout: 20000,
-            withCredentials: false,
+            // withCredentials: false,
             headers: {
                 'Content-Type': 'text/html; charset=utf-8',
             }
@@ -63,15 +63,18 @@ const Request = {
                     const options = {
                         method: type,
                         url,
-                        headers: {
-                            Authorization: this.$storage.get('token')
-                        }
+                        // headers: {
+                        //     Authorization: this.$storage.get('token')
+                        // }
                     }
                     if (type === 'post') options.data = data;
                     if (type === 'get' && !pathPramFlag) options.params = data;
 
                     instance(options).then(result => {
-                        resolve(result);
+                        if(result.data.status != 200){
+                            this.$toast(result.data.message);
+                        }
+                        resolve(result.data);
                     }).catch(error => {
                         reject(error);
                         this.$toast("网络信号弱，请检查网络设置");

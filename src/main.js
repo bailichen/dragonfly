@@ -29,6 +29,7 @@ Vue.use(Directives);
 //Plugins
 import Plugins from './plugins';
 Vue.use(Plugins);
+// import './_config'
 
 //GlobalMixins
 import RouterFrom from './mixins/router-from/router-from.js';
