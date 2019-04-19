@@ -13,6 +13,12 @@ module.exports = merge(baseConfig, {
         filename: '[name].js',
         chunkFilename: '[name].js'
     },
+    // devServer: {
+    //     proxy: [{
+    //         context: ['/wechart_class.php'],
+    //         target: 'http://shijianguanlixueyuan.com',
+    //     }]
+    // },
     devtool: "#cheap-module-source-map",
     watchOptions: {
         ignored: /node_modules/,
@@ -23,3 +29,4 @@ module.exports = merge(baseConfig, {
         })
     ]
 });
+console.log('/device');

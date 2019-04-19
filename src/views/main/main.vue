@@ -17,7 +17,7 @@ export default {
     },
     mounted() {
         // this.$store.dispatch('demo/invokePushItems')
-        this.$request('classApi').then(res =>{
+        this.$request('wechartClass').then(res =>{
             console.log(res);
         })
     }

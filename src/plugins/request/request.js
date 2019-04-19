@@ -12,10 +12,9 @@ const Request = {
             timeout: 20000,
             withCredentials: false,
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/html; charset=utf-8',
             }
         });
-debugger;
         instance.interceptors.request.use(config => {
             // let token = localStorage.getItem("token");
             // if (token) {
