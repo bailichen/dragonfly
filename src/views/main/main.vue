@@ -16,7 +16,10 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch('demo/invokePushItems')
+        // this.$store.dispatch('demo/invokePushItems')
+        this.$request('classApi').then(res =>{
+            console.log(res);
+        })
     }
 }
 </script>
