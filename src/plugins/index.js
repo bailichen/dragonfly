@@ -4,7 +4,6 @@ import Request from './request/request.js';
 import Loading from './loading/loading.js';
 import Toast from './toast/toast.js';
 import Status from './status/status.js';
-import Back from './back/back.js';
 import Storage from './storage/storage.js';
 
 export default {
@@ -15,7 +14,6 @@ export default {
         Vue.use(Loading);
         Vue.use(Toast);
         Vue.use(Status);
-        Vue.use(Back);
         Vue.use(Storage);
     }
 }

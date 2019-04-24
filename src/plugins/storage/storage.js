@@ -26,6 +26,11 @@ export default {
                     }
                 }
             },
+            remove(name){
+                if (typeof (name) === 'string') {
+                    result = window.localStorage.removeItem(name);
+                }
+            },
             clear() {
                 window.localStorage.clear();
             }

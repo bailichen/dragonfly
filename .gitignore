@@ -453,6 +453,6 @@ ASALocalRun/
 
 # End of https://www.gitignore.io/api/webstorm,sublimetext,visualstudio,visualstudiocode
 
-dist/
+wechart/
 package-lock.json
 .vscode/

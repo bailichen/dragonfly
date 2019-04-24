@@ -2,7 +2,7 @@
 window.Promise = Promise;
 
 import axios from 'axios';
-import api from '@/_config/api.js';
+import api from '@/config/api.js';
 
 const Request = {
     install(Vue, options) {
