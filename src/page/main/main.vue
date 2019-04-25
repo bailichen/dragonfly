@@ -1,5 +1,6 @@
 <template>
     <div class="main">
+        <button @click="handleClick">点击获取用户信息</button>
         <div>
             用户信息openid： {{this.userInfo.openid}} <br />
             headimgurl : {{this.userInfo.headimgurl}} <br />
@@ -18,10 +19,15 @@ export default {
         }
     },
     mounted() {
-        this.userInfo = this.$store.state.userInfo.userInfoDetail
         this.$request('wechartClass').then(res => {
             console.log(res);
         })
+    },
+    methods: {
+        handleClick() {
+            this.userInfo = this.$store.state.userInfo.userInfoDetail
+            console.log(this.userInfo);
+        }
     }
 }
 </script>

@@ -14,6 +14,8 @@ export default {
             this.$request('wxauth', {
                 code: this.$storage.get('code')
             }).then(res => {
+                console.log(res.user);
+                alert(res.openid)
                 if (res.user.openid) {
                     this.$store.dispatch('userInfo/getUserInfoActive', res.user)
                 } else {
