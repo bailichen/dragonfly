@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
     mounted() {
         if (this.$storage.get('code')) {
@@ -13,10 +14,16 @@ export default {
             this.$request('wxauth', {
                 code: this.$storage.get('code')
             }).then(res => {
-                this.$store.dispatch('userInfo/getUserInfoActive', res.user)
-            }).catch(err => {
-                this.$storage.clear();
-                this.$router.push({name:'main'})
+                if (res.user.openid) {
+                    this.$store.dispatch('userInfo/getUserInfoActive', res.user)
+                } else {
+                    this.$toast('登录超时，请重新授权登录！')
+                    this.$storage.clear();
+                    this.$router.push({ name: 'main' })
+                    setTimeout(()=>{
+                        window.location.reload();
+                    },2000)
+                }
             })
         } else {
             let url = 'http://www.shijianguanlixueyuan.com/wechart'

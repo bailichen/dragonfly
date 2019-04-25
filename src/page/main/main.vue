@@ -1,12 +1,12 @@
 <template>
     <div class="main">
         <div>
-             用户信息openid：   {{this.userInfo.openid}}  <br/>
-             headimgurl : {{this.userInfo.headimgurl}} <br/>
-             nickname :{{this.userInfo.nickname}} <br/>
-            sex: {{this.userInfo.sex}} <br/>
-             ts :{{this.userInfo.ts}} <br/>
-            unionid: {{this.userInfo.unionid}} <br/>
+            用户信息openid： {{this.userInfo.openid}} <br />
+            headimgurl : {{this.userInfo.headimgurl}} <br />
+            nickname :{{this.userInfo.nickname}} <br />
+            sex: {{this.userInfo.sex}} <br />
+            ts :{{this.userInfo.ts}} <br />
+            unionid: {{this.userInfo.unionid}} <br />
         </div>
     </div>
 </template>
@@ -14,7 +14,7 @@
 export default {
     data() {
         return {
-            userInfo:{}
+            userInfo: {}
         }
     },
     mounted() {
