@@ -1,5 +1,6 @@
-const main = r => require.ensure([], () => r(require('@/page/main/main')), 'main');
-const detail = r => require.ensure([], () => r(require('@/page/detail/detail')), 'detail');
+
+import main from '@/page/main/main'
+import detail from '@/page/detail/detail'
 export default [
     {
         path: '/',
@@ -11,6 +12,7 @@ export default [
     },
     {
         path: '/main',
+        name: 'main',
         component: main,
         meta: {
             title: '微信测试'
@@ -18,6 +20,7 @@ export default [
     },
     {
         path: '/detail',
+        name:'detail',
         component: detail,
         meta: {
             title: '微信测试详情'

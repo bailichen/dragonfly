@@ -12,7 +12,7 @@ const Request = {
             timeout: 20000,
             // withCredentials: false,
             headers: {
-                'Content-Type': 'text/html; charset=utf-8',
+                'Content-Type': 'application/json',
             }
         });
         instance.interceptors.request.use(config => {

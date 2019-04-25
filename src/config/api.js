@@ -19,6 +19,12 @@ const requests = {
         type: 'get',
         server: baseUrl,
         url: '/wechart_class.php'
+    },
+    'wxauth':{
+        name: '微信用户信息',
+        type: 'get',
+        server: baseUrl,
+        url: '/wxauth.php'
     }
 }
 
