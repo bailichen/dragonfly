@@ -73,6 +73,7 @@ const Request = {
                     instance(options).then(result => {
                         if(result.data.status != 200){
                             this.$toast(result.data.message);
+                            reject(result.data)
                         }
                         resolve(result.data);
                     }).catch(error => {

@@ -20,8 +20,8 @@ export default {
         }
     },
     mounted() {
-        this.$request('wechartClass').then(res => {
-            console.log(res);
+        this.$request('wechartClass').then(({data}) => {
+            console.log(data);
         })
     },
     methods: {
@@ -50,28 +50,31 @@ export default {
                 }
             );
         },
-        timestamp(){
+        timestamp() {
             return Date.parse(new Date())
         },
         handlePay() {
-            let args = {
-                "appId": 'wxe5240862be6104be',     //公众号名称，由商户传入     
-                "timeStamp": this.timestamp(),         //时间戳，自1970年以来的秒数     
-                "nonceStr": '5K8264ILTKCH16CQ2502SI8ZNMTM67VS', //随机串     
-                "package": 'prepay_id=123456789',
-                "signType": 'HMAC-SHA256',         //微信签名方式：     
-                "paySign": 'C380BEC2BFD727A4B6845133519F3AD6' //微信签名 
-            }
-            if (typeof WeixinJSBridge == "undefined") {
-                if (document.addEventListener) {
-                    document.addEventListener('WeixinJSBridgeReady', this.onBridgeReady(args), false);
-                } else if (document.attachEvent) {
-                    document.attachEvent('WeixinJSBridgeReady', this.onBridgeReady(args));
-                    document.attachEvent('onWeixinJSBridgeReady', this.onBridgeReady(args));
+            this.$request('UnifiedOrderApi').then(({data}) => {
+                let args = {
+                    "appId": data.appid,     //公众号名称，由商户传入     
+                    "timeStamp": this.timestamp(),         //时间戳，自1970年以来的秒数     
+                    "nonceStr": data.nonce_str, //随机串     
+                    "package": `prepay_id=${data.prepay_id}`,
+                    "signType": 'HMAC-SHA256',         //微信签名方式：     
+                    "paySign": data.sign //微信签名 
                 }
-            } else {
-                this.onBridgeReady(args);
-            }
+                if (typeof WeixinJSBridge == "undefined") {
+                    if (document.addEventListener) {
+                        document.addEventListener('WeixinJSBridgeReady', this.onBridgeReady(args), false);
+                    } else if (document.attachEvent) {
+                        document.attachEvent('WeixinJSBridgeReady', this.onBridgeReady(args));
+                        document.attachEvent('onWeixinJSBridgeReady', this.onBridgeReady(args));
+                    }
+                } else {
+                    this.onBridgeReady(args);
+                }
+            })
+
         }
     }
 }
