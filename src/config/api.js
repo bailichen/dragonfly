@@ -4,7 +4,7 @@
  * baseUrl: 域名地址
  * 
  */
-let baseUrl = '//shijianguanlixueyuan.com';
+let baseUrl = '//www.shijianguanlixueyuan.com';
 
 
 const requests = {
