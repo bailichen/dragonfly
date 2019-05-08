@@ -16,12 +16,19 @@
 export default {
     data() {
         return {
-            userInfo: {}
+            userInfo: {
+                openid:'',
+                headimgurl:'',
+                nickname:'',
+                sex:'',
+                ts:'',
+                unionid:''
+            }
         }
     },
     mounted() {
         this.$request('wechartClass').then(({ data }) => {
-            console.log(data);
+            // console.log(data);
         })
     },
     methods: {
