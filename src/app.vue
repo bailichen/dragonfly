@@ -25,7 +25,7 @@ export default {
                     if (res.user.openid) {
                         this.userOpenId = res.user.openid
                         window.sessionStorage.setItem('token', res.access_token)
-                        window.sessionStorage.setItem('userInfo', JSON.parse(res.user))
+                        window.sessionStorage.setItem('userInfo', JSON.stringify(res.user))
                         this.$store.dispatch('userInfo/getUserInfoActive')
                     } else {
                         this.$storage.clear();
