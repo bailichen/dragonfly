@@ -20,13 +20,13 @@ export default {
         }
     },
     mounted() {
-        this.$request('wechartClass').then(({data}) => {
+        this.$request('wechartClass').then(({ data }) => {
             console.log(data);
         })
     },
     methods: {
         handleClick() {
-            this.userInfo = this.$store.state.userInfo.userInfoDetail
+            this.userInfo =JSON.parse(window.sessionStorage.getItem('userInfo')) 
             console.log(this.userInfo);
         },
         onBridgeReady(args) {
@@ -54,7 +54,10 @@ export default {
             return Date.parse(new Date())
         },
         handlePay() {
-            this.$request('UnifiedOrderApi').then(({data}) => {
+            this.$request('UnifiedOrderApi', {
+                openid: userInfo.openid
+            }).then(({ data }) => {
+                console.log(data);
                 let args = {
                     "appId": data.appid,     //公众号名称，由商户传入     
                     "timeStamp": this.timestamp(),         //时间戳，自1970年以来的秒数     

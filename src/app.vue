@@ -17,24 +17,24 @@ export default {
     mounted() {
         if (this.$storage.get('code')) {
             // 拿token
-            // if (!this.$storage.get('token')) {
-            this.$request('wxauth', {
-                code: this.$storage.get('code')
-            }).then(res => {
-                if (res.user.openid) {
-                    this.userOpenId = res.user.openid
-                    this.$storage.set('token', res.access_token)
-                    this.$storage.set('userInfo', res.user)
-                    this.$store.dispatch('userInfo/getUserInfoActive')
-                } else {
-                    this.$storage.clear();
-                    this.$router.push({ name: 'main' })
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 500)
-                }
-            })
-            // }
+            if (!window.sessionStorage.getItem('token')) {
+                this.$request('wxauth', {
+                    code: this.$storage.get('code')
+                }).then(res => {
+                    if (res.user.openid) {
+                        this.userOpenId = res.user.openid
+                        window.sessionStorage.setItem('token', res.access_token)
+                        window.sessionStorage.setItem('userInfo', JSON.parse(res.user))
+                        this.$store.dispatch('userInfo/getUserInfoActive')
+                    } else {
+                        this.$storage.clear();
+                        this.$router.push({ name: 'main' })
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 500)
+                    }
+                })
+            }
         } else {
             let url = 'http://www.shijianguanlixueyuan.com/wechart'
             let redirectUrl = encodeURIComponent(url, 'utf-8')
