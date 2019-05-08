@@ -62,7 +62,7 @@ export default {
         },
         handlePay() {
             this.$request('UnifiedOrderApi', {
-                openid: userInfo.openid
+                openid: this.userInfo.openid
             }).then(({ data }) => {
                 console.log(data);
                 let args = {
