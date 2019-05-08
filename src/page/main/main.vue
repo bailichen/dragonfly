@@ -61,8 +61,9 @@ export default {
             return Date.parse(new Date())
         },
         handlePay() {
+            const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
             this.$request('UnifiedOrderApi', {
-                openid: this.userInfo.openid
+                openid: infoData.openid
             }).then(({ data }) => {
                 console.log(data);
                 let args = {

@@ -30,7 +30,7 @@ const requests = {
         name: '订单信息',
         type: 'get',
         server: baseUrl,
-        url: '/wxsdk/example/UnifiedOrder_api.php'
+        url: '/wxsdk/example/unifiedOrder_openid.php'
     }
 }
 
