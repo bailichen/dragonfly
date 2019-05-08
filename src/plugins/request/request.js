@@ -71,6 +71,7 @@ const Request = {
                     if (type === 'get' && !pathPramFlag) options.params = data;
 
                     instance(options).then(result => {
+                        console.log(result);
                         if(result.data.status != 200){
                             this.$toast(result.data.message);
                             reject(result.data)
