@@ -9,9 +9,7 @@
             ts :{{this.userInfo.ts}} <br />
             unionid: {{this.userInfo.unionid}} <br />
         </div>
-        <button @click="handlePay1">支付订单1</button>
-        <button @click="handlePay2">支付订单2</button>
-        <button @click="handlePay3">支付订单3</button>
+        <button @click="handlePay">支付订单</button>
     </div>
 </template>
 <script>
@@ -62,33 +60,9 @@ export default {
         timestamp() {
             return Date.parse(new Date())
         },
-        handlePay1() {
-            const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
-            this.$request('UnifiedOrderApi1', {
-                openid: infoData.openid
-            }).then(({ data }) => {
-                console.log(data);
-            })
-        },
-        handlePay2() {
-            const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
-            this.$request('UnifiedOrderApi2', {
-                openid: infoData.openid
-            }).then(({ data }) => {
-                console.log(data);
-            })
-        },
-        handlePay3() {
-            const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
-            this.$request('UnifiedOrderApi3', {
-                openid: infoData.openid
-            }).then(({ data }) => {
-                console.log(data);
-            })
-        },
         handlePay() {
             const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
-            this.$request('UnifiedOrderApi', {
+            this.$request('UnifiedOrderApi2', {
                 openid: infoData.openid
             }).then(({ data }) => {
                 console.log(data);
