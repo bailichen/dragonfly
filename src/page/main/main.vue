@@ -47,6 +47,7 @@ export default {
                     "paySign": args.paySign //微信签名 
                 },
                 function (res) {
+                    alert(res.err_msg)
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
                         paySuccessCallback();
                     } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
