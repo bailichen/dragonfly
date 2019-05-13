@@ -1,6 +1,7 @@
 
 import main from '@/page/main/main'
 import detail from '@/page/detail/detail'
+import pay from '@/page/pay/pay'
 export default [
     {
         path: '/',
@@ -22,6 +23,14 @@ export default [
         path: '/detail',
         name:'detail',
         component: detail,
+        meta: {
+            title: '微信测试详情'
+        },
+    },
+    {
+        path: '/pay',
+        name:'pay',
+        component: pay,
         meta: {
             title: '微信测试详情'
         },
