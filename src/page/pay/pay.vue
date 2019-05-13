@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="query-btn" @click="handlePay">确认支付</button>
+        <button class="query-btn" @click="handlePay">确认支付233</button>
     </div>
 </template>
 <script>

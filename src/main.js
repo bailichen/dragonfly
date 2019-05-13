@@ -17,7 +17,7 @@ Vue.use(Plugins);
 //Flexible
 import 'amfe-flexible';
 
-import App from './App'
+import App from './app'
 new Vue({
     el: '#app',
     router,
