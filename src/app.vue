@@ -39,7 +39,7 @@ export default {
         } else {
             let url = 'http://www.shijianguanlixueyuan.com/wechart'
             let redirectUrl = encodeURIComponent(url, 'utf-8')
-            // window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe5240862be6104be&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=12#wechat_redirect`
+            window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe5240862be6104be&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=12#wechat_redirect`
         }
     }
 }
