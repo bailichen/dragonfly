@@ -5,6 +5,9 @@
 </template>
 <script>
 export default {
+    mounted(){
+        console.log(this.timestamp());
+    },
     methods:{
         onBridgeReady(args) {
             WeixinJSBridge.invoke(
@@ -29,9 +32,12 @@ export default {
             );
         },
         timestamp() {
-            return Date.parse(new Date())
+            let haomiao = Date.parse(new Date());
+            return parseInt(haomiao/1000)
+            
         },
         handlePay(){
+            
             const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
             this.$request('UnifiedOrderApi2', {
                 openid: infoData.openid
