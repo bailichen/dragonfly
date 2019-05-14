@@ -6,7 +6,6 @@
 <script>
 export default {
     mounted(){
-        console.log(this.timestamp());
     },
     methods:{
         onBridgeReady(args) {
@@ -22,7 +21,7 @@ export default {
                 function (res) {
                     alert(res.err_msg)
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
-                        paySuccessCallback();
+                        alert('支付成功');
                     } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
                         alert('已取消支付');
                     } else {
@@ -31,11 +30,6 @@ export default {
                 }
             );
         },
-        timestamp() {
-            let haomiao = Date.parse(new Date());
-            return parseInt(haomiao/1000)
-            
-        },
         handlePay(){
             
             const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
@@ -43,14 +37,7 @@ export default {
                 openid: infoData.openid
             }).then(({ data }) => {
                 console.log(data);
-                let args = {
-                    "appId": data.appid,     //公众号名称，由商户传入     
-                    "timeStamp": this.timestamp(),         //时间戳，自1970年以来的秒数     
-                    "nonceStr": data.nonce_str, //随机串     
-                    "package": `prepay_id=${data.prepay_id}`,
-                    "signType": 'HMAC-SHA256',         //微信签名方式：     
-                    "paySign": data.sign //微信签名 
-                }
+                let args = data;
                 if (typeof WeixinJSBridge == "undefined") {
                     if (document.addEventListener) {
                         document.addEventListener('WeixinJSBridgeReady', this.onBridgeReady(args), false);
