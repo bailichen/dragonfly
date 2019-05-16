@@ -3,6 +3,11 @@ import './utils/js';
 
 import Vue from 'vue'
 
+//挂载swiper
+import 'swiper/dist/css/swiper.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+Vue.use(VueAwesomeSwiper);
+
 import router from './router'
 import store from './store'//引入store
 
