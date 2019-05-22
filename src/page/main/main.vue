@@ -13,7 +13,8 @@
         <index-tab @handleTab="handleTab"></index-tab>
         <section>
             <div v-if="tabId == 0">
-                <swiper-img :swiperDate="swiperDate"></swiper-img>
+
+                <index-recommend></index-recommend>
             </div>
         </section>
 
@@ -21,26 +22,15 @@
 </template>
 <script>
 import IndexTab from './index-tab'
-import SwiperImg from './swiper-img'
+import IndexRecommend from './index-recommend.vue'
 export default {
     components: {
         IndexTab,
-        SwiperImg
+        IndexRecommend
     },
     data() {
         return {
             tabId:"0",
-            swiperDate: [
-                {
-                    imgSrc: require('@/assets/img/avator.jpg')
-                },
-                {
-                    imgSrc: require('@/assets/img/avator.jpg')
-                },
-                {
-                    imgSrc: require('@/assets/img/avator.jpg')
-                }
-            ]
         }
     },
     
