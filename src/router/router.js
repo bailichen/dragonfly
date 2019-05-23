@@ -8,7 +8,7 @@ export default [
         component: main,
         name: 'main',
         meta: {
-            title: '微信测试'
+            title: '蜻蜓好课商场'
         },
     },
     {
@@ -16,7 +16,7 @@ export default [
         name: 'main',
         component: main,
         meta: {
-            title: '微信测试'
+            title: '蜻蜓好课商场'
         },
     },
     {
@@ -24,7 +24,7 @@ export default [
         name:'detail',
         component: detail,
         meta: {
-            title: '微信测试详情'
+            title: '详情'
         },
     },
     {
@@ -32,7 +32,7 @@ export default [
         name:'pay',
         component: pay,
         meta: {
-            title: '微信测试详情'
+            title: '支付'
         },
     }
 ]
