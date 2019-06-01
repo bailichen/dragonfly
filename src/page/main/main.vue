@@ -11,29 +11,32 @@
         </div>
         <button @click="handlePay">支付订单</button> -->
         <index-tab @handleTab="handleTab"></index-tab>
-        <section>
-            <div v-if="tabId == 0">
-
-                <index-recommend></index-recommend>
-            </div>
+        <section class="main-content">
+            <index-recommend v-if="tabId == 0" @handleMack="coverStatus = true"></index-recommend>
+            <index-other v-else></index-other>
         </section>
-
+        <up-member v-if="coverStatus"></up-member>
     </div>
 </template>
 <script>
 import IndexTab from './index-tab'
 import IndexRecommend from './index-recommend.vue'
+import IndexOther from './index-other.vue'
+import UpMember from './up-member.vue'
 export default {
     components: {
         IndexTab,
-        IndexRecommend
+        IndexRecommend,
+        IndexOther,
+        UpMember
     },
     data() {
         return {
-            tabId:"0",
+            tabId: "0",
+            coverStatus: false
         }
     },
-    
+
     mounted() {
         this.$request('wechartClass').then(({ data }) => {
             // console.log(data);
@@ -48,5 +51,12 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-
+.main {
+    height: 100vh;
+    width: 100vw;
+    .main-content {
+        width: 100%;
+        height: calc(~"100% - 88px");
+    }
+}
 </style>

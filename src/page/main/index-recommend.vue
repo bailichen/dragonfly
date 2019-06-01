@@ -18,7 +18,7 @@
                 <p>蜻蜓计划-学习赚钱两不误</p>
                 <p>推广课程 <span>赚20%-45%</span></p>
             </div>
-            <div class="recommend-center-right">
+            <div class="recommend-center-right" >
                 <span>立即赚钱</span>
             </div>
         </div>
@@ -50,7 +50,7 @@
                         <div>售价￥{{item.money}}</div>
                         <div class="make-money">赚<img src="../../assets/img/make-money.png"
                                  alt="" />{{item.make}}</div>
-                        <div class="begin-money">开始赚钱</div>
+                        <div class="begin-money" @click="$emit('handleMack')">开始赚钱</div>
                     </div>
                 </div>
             </div>
@@ -121,6 +121,9 @@ export default {
 </script>
 <style lang="less" scoped>
 .index-recommend {
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     .recombtn {
         display: flex;
         justify-content: space-around;
@@ -269,17 +272,17 @@ export default {
                             width: 30px;
                             height: 30px;
                             margin: 0 20px 0 2px;
-                            vertical-align: middle
+                            vertical-align: middle;
                         }
                     }
-                    .begin-money{
+                    .begin-money {
                         width: 180px;
                         text-align: center;
                         color: #fff;
                         padding: 10px 0;
                         font-size: 30px;
                         background: #d81e06;
-                        border-radius: 50px;/*no*/
+                        border-radius: 50px; /*no*/
                     }
                 }
             }

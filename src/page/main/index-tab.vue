@@ -47,32 +47,31 @@ export default {
     },
     mounted() { },
     methods: {
-        handleTab(item){
+        handleTab(item) {
             this.selectTab = item.id
-            this.$emit('handleTab',item.id)
+            this.$emit('handleTab', item.id)
         }
     }
 }
 </script>
 <style lang="less" scoped>
-.main {
-    .index-tab {
-        width: 700px;
-        margin: 0 auto;
-        overflow: hidden;
-        .tab-part {
-            overflow-x: scroll;
-            white-space: nowrap;
-            span {
-                display: inline-block;
-                font-size: 30px;
-                margin-right: 34px;
-                color: #000;
-                padding: 24px 0;
-            }
-            .select-tab {
-                color: #d81e06;
-            }
+.index-tab {
+    width: 700px;
+    height:88px;
+    margin: 0 auto;
+    overflow: hidden;
+    .tab-part {
+        overflow-x: scroll;
+        white-space: nowrap;
+        span {
+            display: inline-block;
+            font-size: 30px;
+            margin-right: 34px;
+            color: #000;
+            padding: 24px 0;
+        }
+        .select-tab {
+            color: #d81e06;
         }
     }
 }
