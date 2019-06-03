@@ -40,7 +40,7 @@ export default [
         },
     },
     {
-        path: '/pay',
+        path: '/pay/:id',
         name: 'pay',
         component: pay,
         meta: {

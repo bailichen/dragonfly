@@ -5,21 +5,23 @@
             <div class="user-write">
                 <div class="write-item">
                     <span>姓名</span>
-                    <input v-model="filter.name"
+                    <input v-model="filter.user_name"
                            type="text"
-                           placeholder="请填写姓名" />
+                           placeholder="请填写姓名"
+                           maxlength="20" />
                 </div>
                 <div class="write-item">
                     <span>微信号</span>
-                    <input v-model="filter.wxname"
+                    <input v-model="filter.wx_no"
                            type="text"
-                           placeholder="请填写请填写微信" />
+                           placeholder="请填写微信" />
                 </div>
                 <div class="write-item">
                     <span>手机号码</span>
-                    <input v-model="filter.tel"
+                    <input v-model="filter.tel_no"
                            type="text"
-                           placeholder="请填写手机号" />
+                           placeholder="请填写手机号"
+                           maxlength="11" />
                 </div>
             </div>
             <h1>订单信息</h1>
@@ -31,11 +33,11 @@
                     </div>
                     <div class="choose-text">
                         <div class="choose-text-left">
-                            <span>红蜻蜓</span>
-                            <i>分成30%</i>
+                            <span>{{chooseData.name}}</span>
+                            <i>{{chooseData.divide}}</i>
                         </div>
                         <div class="choose-text-right">
-                            249元/年
+                            {{chooseData.money}}
                         </div>
                     </div>
                 </div>
@@ -53,16 +55,57 @@
 export default {
     data() {
         return {
-            filter: {
+            classid: '',
+            chooseData: {
+                id: '',
                 name: '',
-                wxname: '',
-                tel: ''
-            }
+                divide: '',
+                money: ''
+            },
+            filter: {
+                user_name: '',
+                wx_no: '',
+                tel_no: ''
+            },
+            list: [
+                {
+                    id: '0',
+                    name: '白蜻蜓',
+                    divide: '分成20%',
+                    money: '99元/年'
+                },
+                {
+                    id: '1',
+                    name: '红蜻蜓',
+                    divide: '分成30%',
+                    money: '249元/年'
+                },
+                {
+                    id: '2',
+                    name: '蓝蜻蜓',
+                    divide: '分成50%',
+                    money: '899元/年'
+                }
+            ]
         }
     },
     mounted() {
+        this.classid = this.$route.params.id
+        this.list.map((item) => {
+            if (item.id == this.classid) {
+                this.chooseData = item
+            }
+        })
     },
     methods: {
+        paySuccess(orderId) {
+            this.$request('wechartOrdersApi', {
+                t: 'status',
+                out_trade_no: orderId
+            }).then(({data})=>{
+                this.$router.push({name:'success'})
+            })
+        },
         onBridgeReady(args) {
             WeixinJSBridge.invoke(
                 'getBrandWCPayRequest', {
@@ -74,9 +117,8 @@ export default {
                     "paySign": args.paySign //微信签名 
                 },
                 function (res) {
-                    alert(res.err_msg)
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
-                        alert('支付成功');
+                        this.paySuccess(args.out_trade_no)
                     } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
                         alert('已取消支付');
                     } else {
@@ -86,10 +128,27 @@ export default {
             );
         },
         handlePay() {
-
+            let telReg = /^1[345789]\d{9}$/;
+            if (!this.filter.user_name) {
+                this.$toast('请输入姓名')
+                return false
+            }
+            if (!this.filter.wx_no) {
+                this.$toast('请填写微信')
+                return false
+            }
+            if (!telReg.test(this.filter.tel_no)) {
+                this.$toast('请填写正确格式的手机号！')
+                return false
+            }
             const infoData = JSON.parse(window.sessionStorage.getItem('userInfo'))
+            const { user_name, wx_no, tel_no } = this.filter
             this.$request('UnifiedOrderApi2', {
-                openid: infoData.openid
+                openid: infoData.openid,
+                user_name,
+                wx_no,
+                tel_no,
+                classid: this.classid
             }).then(({ data }) => {
                 console.log(data);
                 let args = data;
@@ -114,7 +173,7 @@ export default {
     .pay-top {
         height: calc(~"100% - 120px");
         display: block;
-         overflow-y: scroll;
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
         h1 {
             display: block;
@@ -199,23 +258,22 @@ export default {
         display: flex;
         justify-content: flex-start;
         height: 120px;
-        span{
+        span {
             display: block;
             width: 60%;
             text-align: center;
             line-height: 120px;
-            font-size:36px;
-            color: #D1090C;
-            border-top: 1px solid #B4B4B4;/*no*/
+            font-size: 36px;
+            color: #d1090c;
+            border-top: 1px solid #b4b4b4; /*no*/
         }
         .query-btn {
             display: block;
             width: 60%;
             color: #fff;
-            font-size:36px;
-            background: #D1090C;
+            font-size: 36px;
+            background: #d1090c;
             text-align: center;
-            
         }
     }
 }

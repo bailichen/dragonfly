@@ -26,23 +26,17 @@ const requests = {
         server: baseUrl,
         url: '/wxauth.php'
     },
-    'UnifiedOrderApi1':{
-        name: '订单信息',
-        type: 'get',
-        server: baseUrl,
-        url: '/wxsdk/example/unifiedOrder_openid1.php'
-    },
     'UnifiedOrderApi2':{
         name: '订单信息',
-        type: 'get',
+        type: 'post',
         server: baseUrl,
         url: '/wxsdk/example/unifiedOrder_openid2.php'
     },
-    'UnifiedOrderApi3':{
+    'wechartOrdersApi':{
         name: '订单信息',
         type: 'get',
         server: baseUrl,
-        url: '/wxsdk/example/unifiedOrder_openid3.php'
+        url: '/wechartOrders_api.php'
     }
 }
 

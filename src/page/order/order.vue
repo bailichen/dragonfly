@@ -6,7 +6,8 @@
         <div class="order-list">
             <div v-for="item in list"
                  :key="item.id"
-                 class="order-list-item" :class="{'order-list-item-red':choosed == item.id}" >
+                 class="order-list-item"
+                 :class="{'order-list-item-red':choosed == item.id}">
                 <input type="radio"
                        name="order"
                        v-model="choosed"
@@ -72,8 +73,8 @@ export default {
     },
     mounted() { },
     methods: {
-        handlePay(){
-            this.$router.push({name:'pay'})
+        handlePay() {
+            this.$router.push({ name: 'pay', params: { id: this.choosed } })
         }
     },
 }
@@ -147,8 +148,8 @@ export default {
                 }
             }
         }
-        .order-list-item-red{
-            border-color: #D1090C
+        .order-list-item-red {
+            border-color: #d1090c;
         }
     }
     .order-botton {
