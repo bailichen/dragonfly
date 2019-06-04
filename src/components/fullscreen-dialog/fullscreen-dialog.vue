@@ -35,31 +35,6 @@
         justify-content: center;
         background: rgba(30, 30, 30, 0.84);
         z-index: 300;
-        // &.v-enter-active {
-        //     transition: opacity 0.45s ease;
-
-        //     .dialog {
-        //         transition: transform 0.45s ease;
-        //     }
-        // }
-
-        // &.v-leave-active {
-        //     transition: opacity 0.32s ease;
-
-        //     .dialog {
-        //         transition: transform 0.32s ease;
-        //     }
-        // }
-
-        // &.v-enter,
-        // &.v-leave-active {
-        //     opacity: 0;
-
-        //     .dialog {
-        //         transform: perspective(400px) rotateX(90deg);
-        //     }
-        // }
-
         .dialog {
             border-radius: 10px;
             background: #fff;

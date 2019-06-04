@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="bottom-button">
-            <span>总计：249元</span>
+            <span>总计：{{chooseData.moneyNum}}元</span>
             <button class="query-btn"
                     @click="handlePay">确认购买</button>
         </div>
@@ -72,19 +72,22 @@ export default {
                     id: '0',
                     name: '白蜻蜓',
                     divide: '分成20%',
-                    money: '99元/年'
+                    money: '99元/年',
+                    moneyNum:99,
                 },
                 {
                     id: '1',
                     name: '红蜻蜓',
                     divide: '分成30%',
-                    money: '249元/年'
+                    money: '249元/年',
+                    moneyNum:249,
                 },
                 {
                     id: '2',
                     name: '蓝蜻蜓',
                     divide: '分成50%',
-                    money: '899元/年'
+                    money: '899元/年',
+                    moneyNum:899,
                 }
             ]
         }
@@ -200,6 +203,7 @@ export default {
                     display: block;
                     font-size: 36px;
                     padding: 32px 0;
+                    background: none;
                 }
             }
         }

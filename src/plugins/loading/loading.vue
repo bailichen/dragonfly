@@ -53,43 +53,11 @@
                 align-items: center;
                 .icon {
                     position: relative;
-                    height: 72px;
-                    width: 72px;
+                    height: 90px;
+                    width: 90px;
+                    background: url('~@/assets/img/load.png') no-repeat;
+                    background-size: 100% 100%;
                     animation: spin 1.68s cubic-bezier(0.66, 0.38, 0.32, 0.73) infinite;
-
-                    i.back {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        border: 10px solid #f2f2f2;
-                        border-radius: 50%;
-                        opacity: 0.42;
-                    }
-
-                    i.front {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        display: block;
-                        width: 100%;
-                        height: 50%;
-                        overflow: hidden;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-                            display: block;
-                            width: 100%;
-                            height: 200%;
-                            border: 10px solid #f2f2f2;
-                            border-radius: 50%;
-                        }
-                    }
                 }
             }
             .text-content {

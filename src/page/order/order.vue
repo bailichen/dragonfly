@@ -1,6 +1,6 @@
 <template>
     <div class="order">
-        <img src="../../assets/img/order.png"
+        <img src="../../assets/img/order.jpg"
              class="order-img"
              alt="" />
         <div class="order-list">
@@ -49,19 +49,22 @@ export default {
                     id: '0',
                     name: '白蜻蜓',
                     divide: '分成20%',
-                    money: '99元/年'
+                    money: '99元/年',
+                    moneyNum:99,
                 },
                 {
                     id: '1',
                     name: '红蜻蜓',
                     divide: '分成30%',
-                    money: '249元/年'
+                    money: '249元/年',
+                    moneyNum:249,
                 },
                 {
                     id: '2',
                     name: '蓝蜻蜓',
                     divide: '分成50%',
-                    money: '899元/年'
+                    money: '899元/年',
+                    moneyNum:899,
                 }
             ]
         }

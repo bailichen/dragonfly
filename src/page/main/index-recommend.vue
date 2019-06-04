@@ -18,7 +18,7 @@
                 <p>蜻蜓计划-学习赚钱两不误</p>
                 <p>推广课程 <span>赚20%-45%</span></p>
             </div>
-            <div class="recommend-center-right" >
+            <div class="recommend-center-right" @click="$emit('handleMack')">
                 <span>立即赚钱</span>
             </div>
         </div>

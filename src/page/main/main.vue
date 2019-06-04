@@ -12,10 +12,10 @@
         <button @click="handlePay">支付订单</button> -->
         <index-tab @handleTab="handleTab"></index-tab>
         <section class="main-content">
-            <index-recommend v-if="tabId == 0" @handleMack="coverStatus = true"></index-recommend>
+            <index-recommend v-if="tabId == 0" @handleMack="handleMack"></index-recommend>
             <index-other v-else></index-other>
         </section>
-        <up-member v-if="coverStatus"></up-member>
+        <up-member v-if="coverStatus" @handleClose="coverStatus = false"></up-member>
     </div>
 </template>
 <script>
@@ -46,6 +46,10 @@ export default {
         handleTab(id) {
             this.tabId = id
             console.log(id);
+        },
+        handleMack(){
+            alert('888')
+            this.coverStatus = true
         }
     }
 }

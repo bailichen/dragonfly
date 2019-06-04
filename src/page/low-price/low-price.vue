@@ -1,6 +1,6 @@
 <template>
     <div class="low-price">
-        <img src="../../assets/img/low.png"
+        <img src="../../assets/img/low.jpg"
              alt=""
              class="low" />
         <div class="list-content">

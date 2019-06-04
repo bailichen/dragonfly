@@ -3,12 +3,12 @@
          @touchmove.prevent>
 
         <div class="member-content">
-            <div class="close">
+            <div class="close" @click="$emit('handleClose')">
                 <img src="../../assets/img/close.png"
                      alt="">
             </div>
 
-            <img src="../../assets/img/member.png"
+            <img src="../../assets/img/member.jpg"
                  alt=""
                  class="member-img">
             <p>欢迎来到会员商城</p>

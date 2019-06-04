@@ -1,6 +1,6 @@
 <template>
     <div class="detail">
-        <img src="../../assets/img/make-logo.png"
+        <img src="../../assets/img/make-logo.jpg"
              alt=""
              class="make-logo">
         <div class="member-type">
@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="member-bottom">
-            <img src="../../assets/img/vip-number.png" class="vip-number" alt=""/>
-            <img src="../../assets/img/vs.png" alt="" class="vs"/>
+            <img src="../../assets/img/vip-number.jpg" class="vip-number" alt=""/>
+            <img src="../../assets/img/vs.jpg" alt="" class="vs"/>
             <button @click="$router.push({name:'order'})">立即购买</button>
         </div>
     </div>
@@ -121,7 +121,7 @@ export default {
         }
     }
     .member-introduce {
-        background: #65c8ff url("../../assets/img/detail-bg.png") no-repeat;
+        background: #65c8ff url("../../assets/img/detail-bg.jpg") no-repeat;
         background-size: 100% auto;
         .introduce-text {
             padding: 528px 62px 64px;

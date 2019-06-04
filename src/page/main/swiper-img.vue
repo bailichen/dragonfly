@@ -48,7 +48,6 @@ export default {
         .my-swiper-slide {
             width: 100%;
             height: 340px;
-            background: #f90;
             img {
                 display: block;
                 width: 100%;

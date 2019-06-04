@@ -1,6 +1,6 @@
 <template>
     <div class="success">
-        <img src="../../assets/img/order.png"
+        <img src="../../assets/img/order.jpg"
              class="order-img"
              alt="" />
         <p class="congratulation">恭喜你，成为蜻蜓会员</p>
