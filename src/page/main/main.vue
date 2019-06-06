@@ -48,7 +48,6 @@ export default {
             console.log(id);
         },
         handleMack(){
-            alert('888')
             this.coverStatus = true
         }
     }

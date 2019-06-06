@@ -184,7 +184,8 @@ export default {
             span {
                 box-sizing: border-box;
                 text-align: center;
-                display: block;
+                display: flex;
+                align-items: center;
                 width: 100px;
                 height: 100px;
                 padding: 8px 10px;

@@ -6,11 +6,14 @@
         <p class="congratulation">恭喜你，成为蜻蜓会员</p>
         <p>扫描下方二维码或复制微信号，</p>
         <p>拉你入培训群，手把手教你如何赚钱</p>
-        <img src="../../assets/img/wx.png"
-             alt=""
-             class="wx-code" />
+        <div @click="$router.push({name:'qr-code'})">
+            <img src="../../assets/img/wx.png"
+                 alt=""
+                 class="wx-code" />
+        </div>
+
         <p>
-            <span>复制微信号：ABC123</span>
+            <span>复制微信号：B13522400273</span>
         </p>
     </div>
 </template>
