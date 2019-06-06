@@ -110,6 +110,7 @@ export default {
             })
         },
         onBridgeReady(args) {
+            const _this = this
             WeixinJSBridge.invoke(
                 'getBrandWCPayRequest', {
                     "appId": args.appId,     //公众号名称，由商户传入     
@@ -121,7 +122,7 @@ export default {
                 },
                 function (res) {
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
-                        this.paySuccess(args.out_trade_no)
+                        _this.paySuccess(args.out_trade_no)
                     } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
                         alert('已取消支付');
                     } else {
