@@ -64,11 +64,14 @@ export default {
             font-size: 30px;
             margin-right: 34px;
             color: #000;
-            padding: 24px 0;
+            padding: 10px 0 20px;
         }
         .select-tab {
             color: #d81e06;
         }
     }
+}
+.tab-part::-webkit-scrollbar {
+    display: none;
 }
 </style>

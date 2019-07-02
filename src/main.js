@@ -27,8 +27,8 @@ import 'amfe-flexible';
 import App from './app'
 
 
-import vConsole from 'vconsole'
-new vConsole() // 初始化
+// import vConsole from 'vconsole'
+// new vConsole() // 初始化
 
 new Vue({
     el: '#app',
