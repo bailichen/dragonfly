@@ -18,7 +18,8 @@
                 <p>蜻蜓计划-学习赚钱两不误</p>
                 <p>推广课程 <span>赚20%-45%</span></p>
             </div>
-            <div class="recommend-center-right" @click="$emit('handleMack')">
+            <div class="recommend-center-right"
+                 @click="$emit('handleMack')">
                 <span>立即赚钱</span>
             </div>
         </div>
@@ -30,27 +31,29 @@
         </h1>
         <div class="index-list-content">
             <div class="index-list">
-                <div v-for="item in list"
-                     :key="item.id"
-                     class="index-list-item">
+                <div v-for="(item,index) in list"
+                     :key="index"
+                     class="index-list-item"
+                     @click="handleDetail(item)">
                     <div class="index-list-item-top">
-                        <img :src="item.img"
+                        <img :src="item.class_banner"
                              alt=""
                              class="index-list-item-top-img" />
                         <div class="index-list-item-top-instr">
-                            <p>{{item.titie}}</p>
-                            <p>{{item.content}}</p>
+                            <p>【开年职场第一大课】</p>
+                            <p>{{item.class_name}}</p>
                         </div>
                     </div>
                     <div class="index-list-item-center">
-                        <span>{{item.learn}}</span>
+                        <span>{{(Number(item.study_count)/10000).toFixed(2)}}万人次学习</span>
                         <span class="index-list-item-center-qun">培训群</span>
                     </div>
                     <div class="index-list-item-bottom">
-                        <div>售价￥{{item.money}}</div>
+                        <div>售价￥{{item.class_price}}</div>
                         <div class="make-money">赚<img src="../../assets/img/make-money.png"
-                                 alt="" />{{item.make}}</div>
-                        <div class="begin-money" @click="$emit('handleMack')">开始赚钱</div>
+                                 alt="" />{{item.share}}</div>
+                        <div @click.stop class="begin-money"
+                             @click="$emit('handleMack')">开始赚钱</div>
                     </div>
                 </div>
             </div>
@@ -94,29 +97,68 @@ export default {
                 }
             ],
             list: [
-                {
-                    id: 0,
-                    titie: "【开年职场第一大课】",
-                    content: "世坤的321表达法--15万人都学过的表达课",
-                    img: require('@/assets/img/1.png'),
-                    learn: "8.2万人次",
-                    money: '129',
-                    make: "32.5"
-                },
-                {
-                    id: 1,
-                    titie: "【开年职场第一大课】",
-                    content: "世坤的321表达法--15万人都学过的表达课",
-                    img: require('@/assets/img/2.png'),
-                    learn: "8.2万人次",
-                    money: '129',
-                    make: "32.5"
-                }
-            ]
+                // {
+                //     id: 0,
+                //     titie: "【开年职场第一大课】",
+                //     content: "世坤的321表达法--15万人都学过的表达课",
+                //     img: require('@/assets/img/1.png'),
+                //     learn: "8.2万人次",
+                //     money: '129',
+                //     make: "32.5"
+                // },
+                // {
+                //     id: 1,
+                //     titie: "【开年职场第一大课】",
+                //     content: "世坤的321表达法--15万人都学过的表达课",
+                //     img: require('@/assets/img/2.png'),
+                //     learn: "8.2万人次",
+                //     money: '129',
+                //     make: "32.5"
+                // }
+            ],
+            
         }
     },
-    mounted() { },
-    methods: {},
+    // computed: {
+    //     pageCount() {
+    //         return Math.ceil(this.total / this.filter.pageSize)
+    //     },
+    //     tillEnd() {
+    //         return this.total && this.filter.pageNum >= this.pageCount;
+    //     }
+    // },
+    mounted() {
+        // this.getList();
+        this.getAdvertising()
+    },
+    methods: {
+        getAdvertising() {
+            this.$request('wechartClassIndex', {
+                type: '4',
+                pageSize: 10,
+                pageNum: 1
+            }).then(data => {
+                this.swiperDate = data.data.list
+                console.log(data.data.list);
+                this.list = data.data.list.filter((item) => {
+                    if (item.id == '14') {
+                        return item
+                    }
+                })
+                console.log(this.list);
+            })
+        },
+        handleDetail(item) {
+            window.location.href = item.class_url
+        }
+        // handleEnd() {
+        // v-scroll-end="handleEnd"
+        //     if (this.filter.pageNum < this.pageCount && !this.loading) {
+        //         this.filter.pageNum += 1;
+        //         this.getList();
+        //     }
+        // }
+    },
 }
 </script>
 <style lang="less" scoped>
@@ -265,6 +307,7 @@ export default {
                     color: #d81e06;
                     font-size: 28px;
                     justify-content: space-between;
+                    align-items: center;
                     .make-money {
                         display: flex;
                         align-items: center;

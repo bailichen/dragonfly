@@ -13,7 +13,7 @@
         <index-tab @handleTab="handleTab"></index-tab>
         <section class="main-content">
             <index-recommend v-if="tabId == 0" @handleMack="handleMack"></index-recommend>
-            <index-other v-else></index-other>
+            <index-other v-else :tabId="tabId" @handleMack="handleMack"></index-other>
         </section>
         <up-member v-if="coverStatus" @handleClose="coverStatus = false"></up-member>
     </div>
@@ -38,9 +38,9 @@ export default {
     },
 
     mounted() {
-        this.$request('wechartClass').then(({ data }) => {
-            // console.log(data);
-        })
+        // this.$request('wechartClass').then(({ data }) => {
+        //     // console.log(data);
+        // })
     },
     methods: {
         handleTab(id) {

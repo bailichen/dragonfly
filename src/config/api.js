@@ -37,6 +37,12 @@ const requests = {
         type: 'get',
         server: baseUrl,
         url: '/wechartOrders_api.php'
+    },
+    'wechartClassIndex':{
+        name: '推荐列表',
+        type: 'get',
+        server: baseUrl,
+        url: '/wechartClass.php'
     }
 }
 

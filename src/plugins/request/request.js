@@ -33,7 +33,7 @@ const Request = {
             if (request) {
 
                 if (!onRequest.length) {
-                    this.$loading('');
+                    // this.$loading('');
                 }
 
                 const type = request.type || 'post';
@@ -83,7 +83,7 @@ const Request = {
                     }).finally(() => {
                         onRequest.removeItem(rdm);
                         if (!onRequest.length) {
-                            this.$loading.clear();
+                            // this.$loading.clear();
                         }
                     });
                 });

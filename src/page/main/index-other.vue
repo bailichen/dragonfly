@@ -1,49 +1,85 @@
 <template>
-    <div class="index-other">
-        <div class="list">
+    <div class="index-other"
+         v-scroll-end="handleEnd">
+        <div class="list" v-if="list.length || loading">
             <div class="list-item"
                  v-for="item in list"
-                 :key="item.id">
+                 :key="item.id" @click="handleClick(item)">
                 <div class="item-top">
-                    <img :src="item.img"
+                    <img :src="item.class_banner"
                          alt="">
                     <div class="item-top-right">
-                        <p class="name">{{item.name}}</p>
-                        <p class="learnNum">{{item.learnNum}}</p>
+                        <p class="name">{{item.class_name}}</p>
+                        <p class="learnNum">{{item.study_count ? item.study_count >=10000 ?`${(Number(item.study_count)/10000).toFixed(2)}万次学习`:`${item.study_count}次学习` :''}}</p>
                     </div>
                 </div>
                 <div class="item-bottom">
-                    <div class="bottom-left">预计收益：¥{{item.money}}</div>
-                    <div class="bottom-right">开始赚钱</div>
+                    <div class="bottom-left">预计收益：¥{{item.share}}</div>
+                    <div class="bottom-right" @click.stop  @click="$emit('handleMack')">开始赚钱</div>
                 </div>
             </div>
+            <list-loading v-if="loading"></list-loading>
+                <list-end v-if="!loading && tillEnd"></list-end>
         </div>
+        <no-data v-else></no-data>
     </div>
 </template>
 <script>
 export default {
+    props: ['tabId'],
     data() {
         return {
-            list: [
-                {
-                    id: 0,
-                    name: "世坤的321表达法--15万人都学过的表达课",
-                    img: require('@/assets/img/1.png'),
-                    learnNum: '1.7万次学习',
-                    money: '129',
-                },
-                {
-                    id: 1,
-                    name: "世坤的321表达法--15万人都学过的表达课",
-                    img: require('@/assets/img/2.png'),
-                    learnNum: '1.7万次学习',
-                    money: '129',
-                }
-            ]
+            filter: {
+                type: '0',
+                pageSize: 10,
+                pageNum: 1
+            },
+
+            total: 0,
+            loading: false,
+            list: []
         }
     },
-    mounted() { },
-    methods: {},
+    computed: {
+        pageCount() {
+            return Math.ceil(this.total / this.filter.pageSize)
+        },
+        tillEnd() {
+            return this.total && this.filter.pageNum >= this.pageCount;
+        },
+    },
+    watch: {
+        tabId(newVal) {
+            this.filter.type = newVal;
+            this.filter.pageNum = 1;
+            this.list = []
+            this.getList()
+        }
+    },
+    mounted() {
+        this.getList()
+    },
+    methods: {
+        getList() {
+            this.loading = true
+            this.$request('wechartClassIndex', this.filter).then(data => {
+                this.list.push(...data.data.list)
+                this.total = data.data.total
+            }).finally(() => {
+                this.loading = false;
+            })
+        },
+        handleEnd() {
+            console.log(this.filter.pageNum);
+            if (this.filter.pageNum < this.pageCount && !this.loading) {
+                this.filter.pageNum += 1;
+                this.getList();
+            }
+        },
+        handleClick(item){
+            window.location.href = item.class_url
+        }
+    },
 }
 </script>
 <style lang="less" scoped>
@@ -54,6 +90,7 @@ export default {
     background: #ededed;
     .list {
         padding: 20px;
+        padding-bottom: 60px;
         .list-item {
             background: #f5f6fa;
             margin-bottom: 30px;
@@ -100,7 +137,7 @@ export default {
                     font-size: 24px;
                     color: #000;
                     border-right: 1px solid #ededed; /*no*/
-                    &:last-child{
+                    &:last-child {
                         border: 0;
                     }
                 }

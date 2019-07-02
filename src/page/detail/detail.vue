@@ -67,9 +67,9 @@ export default {
         }
     },
     mounted() {
-        this.$request('wechartClass').then(res => {
-            console.log(res);
-        })
+        // this.$request('wechartClass').then(res => {
+        //     console.log(res);
+        // })
     }
 }
 </script>

@@ -6,18 +6,21 @@
             <swiper-slide class="my-swiper-slide"
                           v-for="(item,index) in swiperDate"
                           :key="index">
-                <img :src="item.imgSrc"
-                     alt="" />
+                <div @click="handleClick(item)">
+                    <img :src="item.class_banner"
+                         alt="" />
+                </div>
+
             </swiper-slide>
         </swiper>
     </div>
 </template>
 <script>
 export default {
-    props:{
-        swiperDate:{
-            type:Array,
-            default:()=>[]
+    props: {
+        swiperDate: {
+            type: Array,
+            default: () => []
         }
     },
     computed: {
@@ -33,8 +36,14 @@ export default {
         return {
         }
     },
-    mounted() { },
-    methods:{ },
+    mounted() {
+
+    },
+    methods: {
+        handleClick(item) {
+            window.location.href = item.class_url
+        }
+    },
 }
 </script>
 <style lang="less" scoped>

@@ -19,6 +19,8 @@ Vue.use(Components);
 import Plugins from './plugins';
 Vue.use(Plugins);
 
+import './directives/index';
+
 //Flexible
 import 'amfe-flexible';
 

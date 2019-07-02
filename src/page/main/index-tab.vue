@@ -20,11 +20,11 @@ export default {
                 },
                 {
                     title: '时间管理',
-                    id: '1'
+                    id: '4'
                 },
                 {
                     title: '个人提升',
-                    id: '2'
+                    id: '5'
                 },
                 {
                     title: '赚钱技能',
@@ -32,16 +32,12 @@ export default {
                 },
                 {
                     title: '气质女神',
-                    id: '4'
+                    id: '2'
                 },
                 {
-                    title: '巴拉巴拉',
-                    id: '5'
-                },
-                {
-                    title: '巴拉巴',
-                    id: '6'
-                },
+                    title: '父母课堂',
+                    id: '1'
+                }
             ]
         }
     },
@@ -57,7 +53,7 @@ export default {
 <style lang="less" scoped>
 .index-tab {
     width: 700px;
-    height:88px;
+    height: 88px;
     margin: 0 auto;
     overflow: hidden;
     .tab-part {
